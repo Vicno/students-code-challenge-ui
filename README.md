@@ -30,4 +30,4 @@ ng serve
 
 This project is a complement to the [students-code-challenge-api](https://github.com/Vicno/students-code-challenge-api.git) and is intended to run alongside it, because of this in order to have this project work as intended both must be running at the same time.
 
-This UI handles a simple API that creates, updates, deletes and asigns students and classes, this is done with RxJs as a backbone to handle states and has 3 main pages, the Home Page, a Students Page and a Class page.
+This UI handles a simple API that creates, updates, deletes and asigns students and classes, this is done with NgRx as a backbone to handle states and has 3 main pages, the Home Page, a Students Page and a Class page.
