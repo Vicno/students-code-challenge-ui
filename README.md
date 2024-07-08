@@ -6,22 +6,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Clone the repository
 
-## Build
+```
+git clone https://github.com/Vicno/students-code-challenge-ui.git
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install all needed dependencies:
 
-## Running unit tests
+```
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run the Project:
 
-## Running end-to-end tests
+```
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### About the project
 
-## Further help
+This project is a complement to the [students-code-challenge-api](https://github.com/Vicno/students-code-challenge-api.git) and is intended to run alongside it, because of this in order to have this project work as intended both must be running at the same time.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This UI handles a simple API that creates, updates, deletes and asigns students and classes, this is done with RxJs as a backbone to handle states and has 3 main pages, the Home Page, a Students Page and a Class page.
