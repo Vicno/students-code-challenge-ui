@@ -41,8 +41,8 @@ export class StudentEffects {
   addStudents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addStudent),
-      exhaustMap(() =>
-        this.studentService.getAll().pipe(
+      exhaustMap((action) =>
+        this.studentService.createStudent(action.student).pipe(
           map((students) => addStudentSuccess({ student: students.data[0] })),
           catchError((error) =>
             of(addStudentError({ error })).pipe(
@@ -57,17 +57,21 @@ export class StudentEffects {
   updateStudents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(updateStudent),
-      exhaustMap(() =>
-        this.studentService.getAll().pipe(
-          map((students) =>
-            updateStudentSuccess({ student: students.data[0] })
-          ),
-          catchError((error) =>
-            of(updateStudentError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+      exhaustMap((action) =>
+        this.studentService
+          .updateStudent(action.student.id, action.student)
+          .pipe(
+            map((students) =>
+              updateStudentSuccess({ student: students.data[0] })
+            ),
+            catchError((error) =>
+              of(updateStudentError({ error })).pipe(
+                tap(() =>
+                  console.log(`Error of type: ${error.name} \n Cause: `)
+                )
+              )
             )
           )
-        )
       )
     )
   );
@@ -75,8 +79,8 @@ export class StudentEffects {
   deleteStudents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(deleteStudent),
-      exhaustMap(() =>
-        this.studentService.getAll().pipe(
+      exhaustMap((action) =>
+        this.studentService.deleteStudent(action.student.id).pipe(
           map((students) =>
             deleteStudentSuccess({ student: students.data[0] })
           ),
