@@ -49,4 +49,21 @@ export class StudentsPageComponent {
       }
     });
   }
+
+  returnClassesPerStudent(student: Student): Class[] {
+    let response: Class[] = [];
+    this.classes.forEach((classs) => {
+      if (
+        classs.students.some((classStudent) => classStudent.id == student.id)
+      ) {
+        response.push(classs);
+      }
+    });
+    return response;
+  }
+
+  isLastClass(currentClass: Class): boolean {
+    const classes = this.classes;
+    return classes[classes.length - 1] === currentClass;
+  }
 }

@@ -11,7 +11,11 @@
         <mat-list-item role="listitem" *ngFor="let student of students"
           ><div class="list-item">
             <p class="name">{{ student.name }} {{ student.lastName }}</p>
-            <p class="classes"></p>
+            <p class="classes">
+              <span *ngFor="let class of returnClassesPerStudent(student)">
+                {{ class.title }}<span *ngIf="!isLastClass(class)">, </span>
+              </span>
+            </p>
             <div class="actions">
               <mat-icon
                 aria-hidden="false"
