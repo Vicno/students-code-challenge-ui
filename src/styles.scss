@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../src/assets/scss/main.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+:root {
+  font-size: 8px;
+}
+
+* {
+  letter-spacing: 0;
+}
+
+///-----------------
+///     Colorors
+/// ----------------
+
+$primary-color: #189a1d;
+$secondary-color: #65e769;
+$white: #fefefe;
+$black: #111111;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
