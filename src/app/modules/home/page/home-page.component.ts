@@ -4,13 +4,10 @@ import { Student } from '../../../shared/models/student.model';
 import { State, Store } from '@ngrx/store';
 import { selectAllStudents } from '../../../core/store/selectors/student.selector';
 import {
-  getAllStudents,
   initialStudentState,
   StudentState,
-  studentReducer,
 } from '../../../core/store/reducers/student.reducer';
 import { getStudents } from '../../../core/store/actions/student.action';
-import { AppState } from '../../../core/store/state/app.state';
 import { Class } from '../../../shared/models/class.model';
 import { selectAllClasses } from '../../../core/store/selectors/class.selector';
 import {
