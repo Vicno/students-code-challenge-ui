@@ -1,18 +1,21 @@
 import { createReducer, on } from '@ngrx/store';
 import { Student } from '../../../shared/models/student.model';
 import * as StudentActions from '../actions/student.action';
+
 export interface StudentState {
   isLoading: boolean;
   students: Student[];
+  error: string | null;
 }
 
-export const initialState: StudentState = {
+export const initialStudentState: StudentState = {
   isLoading: false,
   students: [],
+  error: null,
 };
 
 export const studentReducer = createReducer(
-  initialState,
+  initialStudentState,
   on(StudentActions.getStudents, (state) => ({ ...state, isLoading: true })),
   on(StudentActions.getStudentsSuccess, (state, action) => ({
     ...state,
@@ -30,7 +33,7 @@ export const studentReducer = createReducer(
   })),
   on(StudentActions.addStudentSuccess, (state, action) => ({
     ...state,
-    groups: [action.student, ...state.students],
+    students: [action.student, ...state.students],
     isLoading: false,
   })),
   on(StudentActions.addStudentError, (state, { error }) => ({
@@ -41,7 +44,9 @@ export const studentReducer = createReducer(
   on(StudentActions.updateStudent, (state) => ({ ...state, isLoading: true })),
   on(StudentActions.updateStudentSuccess, (state, action) => ({
     ...state,
-    students: [action.student, ...state.students],
+    students: state.students.map((student) =>
+      student.id === action.student.id ? action.student : student
+    ),
     isLoading: false,
   })),
   on(StudentActions.updateStudentError, (state, { error }) => ({
@@ -50,8 +55,11 @@ export const studentReducer = createReducer(
     error: error,
   })),
   on(StudentActions.deleteStudent, (state) => ({ ...state, isLoading: true })),
-  on(StudentActions.deleteStudentSuccess, (state) => ({
+  on(StudentActions.deleteStudentSuccess, (state, action) => ({
     ...state,
+    students: state.students.filter(
+      (student) => student.id !== action.student.id
+    ),
     isLoading: false,
   })),
   on(StudentActions.deleteStudentError, (state, { error }) => ({

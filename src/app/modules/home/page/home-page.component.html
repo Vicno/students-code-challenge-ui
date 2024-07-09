@@ -1,1 +1,21 @@
-<p>home-page works!</p>
+<body>
+  <section>
+    <div class="table-card-classes">
+      <label><p>Classes</p></label>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let class of classes"
+          >{{ class.title }} : {{ class.description }}</mat-list-item
+        >
+      </mat-list>
+    </div>
+
+    <div class="table-card-students">
+      <label><p>Students</p></label>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let student of students"
+          >{{ student.name }} {{ student.lastName }}</mat-list-item
+        >
+      </mat-list>
+    </div>
+  </section>
+</body>

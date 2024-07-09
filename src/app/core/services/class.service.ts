@@ -7,8 +7,8 @@ import { Class } from '../../shared/models/class.model';
 @Injectable({ providedIn: 'root' })
 export class ClassService {
   constructor(private http: HttpClient) {}
-  getAll(): Observable<ClassResponse> {
-    return this.http.get<ClassResponse>(`https://localhost:7175/api/Class`);
+  getAll(): Observable<Class[]> {
+    return this.http.get<Class[]>(`https://localhost:7175/api/Class`);
   }
 
   createClass(classs: Class): Observable<ClassResponse> {
