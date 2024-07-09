@@ -1,0 +1,76 @@
+@import "../../../../styles.scss";
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+  color: $primary-color;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-card-students {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $primary-color;
+  border-radius: 0.5rem;
+  height: fit-content;
+  width: 80%;
+}
+
+.table-header {
+  display: flex;
+  padding: 2rem;
+  background-color: $primary-color;
+  color: $white;
+  font-weight: bold;
+  font-size: 24px;
+
+  align-items: center;
+  & p {
+    padding: 0;
+    margin: 0;
+  }
+  .name {
+    flex: 1;
+  }
+  .classes {
+    flex: 2;
+    text-align: center;
+  }
+  .actions {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+mat-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+mat-list-item {
+  border-bottom: 1px solid $primary-color;
+  padding: 1rem;
+}
+
+.list-item {
+  display: flex;
+  .name {
+    flex: 1;
+  }
+  .classes {
+    flex: 2;
+    text-align: center;
+  }
+  .actions {
+    flex: 1;
+    text-align: right;
+  }
+}
