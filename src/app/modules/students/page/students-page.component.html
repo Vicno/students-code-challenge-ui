@@ -8,6 +8,9 @@
         <p class="actions">Action</p>
       </div>
       <mat-list role="list">
+        <mat-list-item>
+          <div class="add-button" (click)="addHandler()">+</div>
+        </mat-list-item>
         <mat-list-item role="listitem" *ngFor="let student of students"
           ><div class="list-item">
             <p class="name">{{ student.name }} {{ student.lastName }}</p>

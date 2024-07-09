@@ -15,6 +15,8 @@ import {
   initialClassState,
 } from '../../../core/store/reducers/class.reducer';
 import { getClasses } from '../../../core/store/actions/class.action';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStudentDialogComponent } from '../components/add-student-dialog/add-student-dialog.component';
 
 @Component({
   selector: 'app-students-page',
@@ -31,7 +33,8 @@ export class StudentsPageComponent {
 
   constructor(
     private studentStore: Store<State<StudentState>>,
-    private classStore: Store<State<ClassState>>
+    private classStore: Store<State<ClassState>>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -65,5 +68,11 @@ export class StudentsPageComponent {
   isLastClass(currentClass: Class): boolean {
     const classes = this.classes;
     return classes[classes.length - 1] === currentClass;
+  }
+
+  public addHandler() {
+    const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+      width: '60rem',
+    });
   }
 }
