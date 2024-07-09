@@ -17,6 +17,8 @@ import {
 import { getClasses } from '../../../core/store/actions/class.action';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../components/add-student-dialog/add-student-dialog.component';
+import { UpdateStudentDialogComponent } from '../components/update-student-dialog/update-student-dialog.component';
+import { DeleteStudentDialogComponent } from '../components/delete-student-dialog/delete-student-dialog.component';
 
 @Component({
   selector: 'app-students-page',
@@ -72,6 +74,19 @@ export class StudentsPageComponent {
 
   public addHandler() {
     const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+      width: '60rem',
+    });
+  }
+
+  public updateHandler(student: Student) {
+    const dialogRef = this.dialog.open(UpdateStudentDialogComponent, {
+      width: '60rem',
+      id: student.id,
+    });
+  }
+
+  public deleteHandler(student: Student) {
+    const dialogRef = this.dialog.open(DeleteStudentDialogComponent, {
       width: '60rem',
     });
   }

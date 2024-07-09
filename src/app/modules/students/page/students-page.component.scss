@@ -84,3 +84,11 @@ mat-list-item {
     cursor: pointer;
   }
 }
+
+.edit-icon {
+  color: $primary-color;
+}
+
+.delete-icon {
+  color: $error;
+}

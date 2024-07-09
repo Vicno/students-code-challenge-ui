@@ -21,14 +21,18 @@
             </p>
             <div class="actions">
               <mat-icon
+                class="edit-icon"
                 aria-hidden="false"
                 aria-label="edit student"
                 fontIcon="edit"
+                (click)="updateHandler(student)"
               ></mat-icon>
               <mat-icon
+                class="delete-icon"
                 aria-hidden="false"
                 aria-label="delete student"
                 fontIcon="delete"
+                (click)="deleteHandler(student)"
               ></mat-icon>
             </div>
           </div>
