@@ -28,13 +28,13 @@ import { AppState } from '../state/app.state';
 import { Class } from '../../../shared/models/class.model';
 
 @Injectable()
-export class StudentEffects {
+export class ClassEffects {
   loadClasses$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getClasses),
       exhaustMap(() =>
         this.classService.getAll().pipe(
-          map((classes) => getClassesSuccess({ classes: classes.data })),
+          map((classes) => getClassesSuccess({ classes: classes })),
           catchError((error) =>
             of(getClassesError({ error })).pipe(
               tap(() => console.log(`Error of type: ${error.name} \n Cause: `))

@@ -4,15 +4,17 @@ import { Class } from '../../../shared/models/class.model';
 export interface ClassState {
   isLoading: boolean;
   classes: Class[];
+  error: string | null;
 }
 
-export const initialState: ClassState = {
+export const initialClassState: ClassState = {
   isLoading: false,
   classes: [],
+  error: null,
 };
 
 export const classReducer = createReducer(
-  initialState,
+  initialClassState,
   on(ClassActions.getClasses, (state) => ({ ...state, isLoading: true })),
   on(ClassActions.getClassesSuccess, (state, action) => ({
     ...state,

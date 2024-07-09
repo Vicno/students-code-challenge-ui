@@ -13,6 +13,8 @@ import { StudentsModule } from './modules/students/students.module';
 import { ClassesModule } from './modules/classes/classes.module';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AppStateModule } from './core/store/state/app.state';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -26,10 +28,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     StudentsModule,
     ClassesModule,
     MatButtonToggleModule,
+    AppStateModule,
+    HttpClientModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -2,7 +2,8 @@
 
 html,
 body {
-  height: 100%;
+  height: 98% !important;
+  font-size: 16px;
 }
 body {
   margin: 0;
@@ -24,5 +25,11 @@ $secondary-color: #65e769;
 $white: #fefefe;
 $black: #111111;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

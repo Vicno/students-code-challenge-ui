@@ -27,7 +27,9 @@ export class StudentEffects {
       ofType(getStudents),
       exhaustMap(() =>
         this.studentService.getAll().pipe(
-          map((students) => getStudentsSuccess({ students: students.data })),
+          map((students) => {
+            return getStudentsSuccess({ students: students });
+          }),
           catchError((error) =>
             of(getStudentsError({ error })).pipe(
               tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
