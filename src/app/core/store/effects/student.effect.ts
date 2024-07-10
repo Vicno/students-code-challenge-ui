@@ -32,7 +32,9 @@ export class StudentEffects {
           }),
           catchError((error) =>
             of(getStudentsError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error}`)
+              )
             )
           )
         )
@@ -45,10 +47,12 @@ export class StudentEffects {
       ofType(addStudent),
       exhaustMap((action) =>
         this.studentService.createStudent(action.student).pipe(
-          map((students) => addStudentSuccess({ student: students.data[0] })),
+          map((student) => addStudentSuccess({ student: student })),
           catchError((error) =>
             of(addStudentError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error}`)
+              )
             )
           )
         )
@@ -63,13 +67,11 @@ export class StudentEffects {
         this.studentService
           .updateStudent(action.student.id, action.student)
           .pipe(
-            map((students) =>
-              updateStudentSuccess({ student: students.data[0] })
-            ),
+            map((student) => updateStudentSuccess({ student: student })),
             catchError((error) =>
               of(updateStudentError({ error })).pipe(
                 tap(() =>
-                  console.log(`Error of type: ${error.name} \n Cause: `)
+                  console.log(`Error of type: ${error.name} \n Cause: ${error}`)
                 )
               )
             )
@@ -83,12 +85,12 @@ export class StudentEffects {
       ofType(deleteStudent),
       exhaustMap((action) =>
         this.studentService.deleteStudent(action.student.id).pipe(
-          map((students) =>
-            deleteStudentSuccess({ student: students.data[0] })
-          ),
+          map((student) => deleteStudentSuccess({ student: student })),
           catchError((error) =>
             of(deleteStudentError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error}`)
+              )
             )
           )
         )
