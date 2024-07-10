@@ -107,12 +107,15 @@ mat-list-item {
 
 .edit-icon {
   color: $primary-color;
+  cursor: pointer;
 }
 
 .delete-icon {
   color: $error;
+  cursor: pointer;
 }
 
 .search-icon {
   color: $primary-color;
+  cursor: pointer;
 }

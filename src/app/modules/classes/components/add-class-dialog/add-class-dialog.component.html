@@ -1,0 +1,12 @@
+<h1>Add Class</h1>
+<section class="inputs">
+  <label>Title</label>
+  <input type="text" [(ngModel)]="title" />
+  <label>Description</label>
+  <input type="text" [(ngModel)]="description" />
+</section>
+
+<section class="buttons">
+  <button class="cancel" (click)="onClose()">Cancel</button>
+  <button class="save" (click)="onCreate()">Save</button>
+</section>

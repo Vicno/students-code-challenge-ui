@@ -1,0 +1,58 @@
+@import "../../../../../styles.scss";
+@import "../../../../../assets/scss/layouts/dialog.scss";
+
+.table-header {
+  display: flex;
+  padding: 2rem;
+  background-color: $primary-color;
+  color: $white;
+  font-weight: bold;
+  font-size: 20px;
+
+  align-items: center;
+  & p {
+    padding: 0;
+    margin: 0;
+  }
+  .name {
+    flex: 1;
+  }
+  .lastName {
+    flex: 2;
+  }
+}
+
+mat-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+mat-list-item {
+  border-bottom: 1px solid $primary-color;
+  padding: 1rem;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing {
+  width: 90%;
+  margin: auto;
+  border: solid 1px $primary-color;
+  border-radius: 0.5rem;
+}
+
+.list-item {
+  display: flex;
+  margin-left: 1rem;
+  .name {
+    flex: 1;
+  }
+  .lastName {
+    flex: 2;
+  }
+}

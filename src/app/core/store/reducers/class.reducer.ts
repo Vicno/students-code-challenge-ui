@@ -32,7 +32,7 @@ export const classReducer = createReducer(
   })),
   on(ClassActions.addClassesSuccess, (state, action) => ({
     ...state,
-    groups: [action.class, ...state.classes],
+    classes: [action.class, ...state.classes],
     isLoading: false,
   })),
   on(ClassActions.addClassesError, (state, { error }) => ({
@@ -43,7 +43,9 @@ export const classReducer = createReducer(
   on(ClassActions.updateClass, (state) => ({ ...state, isLoading: true })),
   on(ClassActions.updateClassSuccess, (state, action) => ({
     ...state,
-    students: [action.class, ...state.classes],
+    classes: state.classes.map((classs) =>
+      classs.classCode === action.class.classCode ? action.class : classs
+    ),
     isLoading: false,
   })),
   on(ClassActions.updateClassError, (state, { error }) => ({
@@ -52,8 +54,11 @@ export const classReducer = createReducer(
     error: error,
   })),
   on(ClassActions.deleteClass, (state) => ({ ...state, isLoading: true })),
-  on(ClassActions.deleteClassSuccess, (state) => ({
+  on(ClassActions.deleteClassSuccess, (state, action) => ({
     ...state,
+    classes: state.classes.filter(
+      (classs) => classs.classCode !== action.class.classCode
+    ),
     isLoading: false,
   })),
   on(ClassActions.deleteClassError, (state, { error }) => ({

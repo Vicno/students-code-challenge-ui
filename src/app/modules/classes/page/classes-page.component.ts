@@ -16,6 +16,10 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { getStudents } from '../../../core/store/actions/student.action';
 import { getClasses } from '../../../core/store/actions/class.action';
+import { AddClassDialogComponent } from '../components/add-class-dialog/add-class-dialog.component';
+import { UpdateClassDialogComponent } from '../components/update-class-dialog/update-class-dialog.component';
+import { DeleteClassDialogComponent } from '../components/delete-class-dialog/delete-class-dialog.component';
+import { StudentListingDialogComponent } from '../components/student-listing-dialog/student-listing-dialog.component';
 
 @Component({
   selector: 'app-classes-page',
@@ -71,38 +75,35 @@ export class ClassesPageComponent implements OnInit {
   }
 
   public showClassesHandler(classs: Class) {
-    /*const dialogRef = this.dialog.open(ClassListingComponent, {
+    const dialogRef = this.dialog.open(StudentListingDialogComponent, {
       width: '60rem',
-      data: {
-        studentId: student.id,
-        classes: this.returnClassesPerStudent(student),
-      },
-    });*/
+      data: classs,
+    });
   }
 
   public addHandler() {
-    /* const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+    const dialogRef = this.dialog.open(AddClassDialogComponent, {
       width: '60rem',
-    });*/
+    });
   }
 
   public updateHandler(classs: Class) {
-    /* const dialogRef = this.dialog.open(UpdateStudentDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateClassDialogComponent, {
       width: '60rem',
       data: {
-        id: student.id,
-        student: student,
+        classCode: classs.classCode,
+        class: classs,
       },
-    });*/
+    });
   }
 
   public deleteHandler(classs: Class) {
-    /*const dialogRef = this.dialog.open(DeleteStudentDialogComponent, {
+    const dialogRef = this.dialog.open(DeleteClassDialogComponent, {
       width: '60rem',
       data: {
-        id: student.id,
-        student: student,
+        classCode: classs.classCode,
+        classs: classs,
       },
-    });*/
+    });
   }
 }

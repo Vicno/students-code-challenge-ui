@@ -37,7 +37,9 @@ export class ClassEffects {
           map((classes) => getClassesSuccess({ classes: classes })),
           catchError((error) =>
             of(getClassesError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error}`)
+              )
             )
           )
         )
@@ -50,10 +52,15 @@ export class ClassEffects {
       ofType(addClass),
       exhaustMap((action) =>
         this.classService.createClass(action.class).pipe(
-          map((classes) => addClassesSuccess({ class: classes.data[0] })),
+          map((classs) => {
+            classs.students = [];
+            return addClassesSuccess({ class: classs });
+          }),
           catchError((error) =>
             of(addClassesError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error} `)
+              )
             )
           )
         )
@@ -68,11 +75,13 @@ export class ClassEffects {
         this.classService
           .updateClass(action.class.classCode, action.class)
           .pipe(
-            map((classes) => updateClassSuccess({ class: classes.data[0] })),
+            map((classs) => updateClassSuccess({ class: classs })),
             catchError((error) =>
               of(updateClassError({ error })).pipe(
                 tap(() =>
-                  console.log(`Error of type: ${error.name} \n Cause: `)
+                  console.log(
+                    `Error of type: ${error.name} \n Cause: ${error} `
+                  )
                 )
               )
             )
@@ -86,10 +95,12 @@ export class ClassEffects {
       ofType(deleteClass),
       exhaustMap((action) =>
         this.classService.deleteClass(action.class.classCode).pipe(
-          map((classes) => deleteClassSuccess({ class: classes.data[0] })),
+          map((classs) => deleteClassSuccess({ class: classs })),
           catchError((error) =>
             of(deleteClassError({ error })).pipe(
-              tap(() => console.log(`Error of type: ${error.name} \n Cause: `))
+              tap(() =>
+                console.log(`Error of type: ${error.name} \n Cause: ${error}`)
+              )
             )
           )
         )
@@ -104,13 +115,11 @@ export class ClassEffects {
         this.classService
           .addStudentToClass(action.class.classCode, action.student.id)
           .pipe(
-            map((classes) =>
-              addStudentToClassSuccess({ class: classes.data[0] })
-            ),
+            map((classs) => addStudentToClassSuccess({ class: classs })),
             catchError((error) =>
               of(addStudentToClassError({ error })).pipe(
                 tap(() =>
-                  console.log(`Error of type: ${error.name} \n Cause: `)
+                  console.log(`Error of type: ${error.name} \n Cause: ${error}`)
                 )
               )
             )
@@ -126,13 +135,11 @@ export class ClassEffects {
         this.classService
           .removeStudentFromClass(action.class.classCode, action.student.id)
           .pipe(
-            map((classes) =>
-              removeStudentFromClassSuccess({ class: classes.data[0] })
-            ),
+            map((classs) => removeStudentFromClassSuccess({ class: classs })),
             catchError((error) =>
               of(removeStudentFromClassError({ error })).pipe(
                 tap(() =>
-                  console.log(`Error of type: ${error.name} \n Cause: `)
+                  console.log(`Error of type: ${error.name} \n Cause: ${error}`)
                 )
               )
             )

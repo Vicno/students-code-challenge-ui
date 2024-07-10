@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
 import { State, Store } from '@ngrx/store';
@@ -15,7 +15,7 @@ import { DialogStudentsModal } from '../../../../shared/models/dialogStudents.mo
   templateUrl: './delete-student-dialog.component.html',
   styleUrl: './delete-student-dialog.component.scss',
 })
-export class DeleteStudentDialogComponent {
+export class DeleteStudentDialogComponent implements OnInit {
   name: string = '';
   lastName: string = '';
   id: string = '';
