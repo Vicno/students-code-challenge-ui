@@ -12,6 +12,20 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  &.input-section {
+    justify-content: space-around;
+  }
+}
+
+.input-space {
+  display: flex;
+  border: 1px $primary-color solid;
+  border-radius: 4px;
+}
+
+.input-area {
+  border: none;
+  width: 23rem;
 }
 
 .table-card-students {
@@ -91,4 +105,8 @@ mat-list-item {
 
 .delete-icon {
   color: $error;
+}
+
+.search-icon {
+  color: $primary-color;
 }

@@ -9,6 +9,7 @@ import { DeleteStudentDialogComponent } from './components/delete-student-dialog
 import { MatDialogActions, MatDialogContent } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ClassListingComponent } from './components/class-listing/class-listing.component';
+import { StudentFilterPipe } from './pipes/student-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ClassListingComponent } from './components/class-listing/class-listing.
     UpdateStudentDialogComponent,
     DeleteStudentDialogComponent,
     ClassListingComponent,
+    StudentFilterPipe,
   ],
   imports: [
     CommonModule,

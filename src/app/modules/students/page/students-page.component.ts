@@ -33,6 +33,7 @@ export class StudentsPageComponent {
 
   classes$: Observable<Class[]> = this.classStore.select(selectAllClasses);
   classes: Class[] = [];
+  searchTerm: string = '';
 
   constructor(
     private studentStore: Store<State<StudentState>>,
