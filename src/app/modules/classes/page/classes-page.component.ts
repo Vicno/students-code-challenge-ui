@@ -20,6 +20,7 @@ import { AddClassDialogComponent } from '../components/add-class-dialog/add-clas
 import { UpdateClassDialogComponent } from '../components/update-class-dialog/update-class-dialog.component';
 import { DeleteClassDialogComponent } from '../components/delete-class-dialog/delete-class-dialog.component';
 import { StudentListingDialogComponent } from '../components/student-listing-dialog/student-listing-dialog.component';
+import { AddStudentsListingDialogComponent } from '../components/add-students-listing-dialog/add-students-listing-dialog.component';
 
 @Component({
   selector: 'app-classes-page',
@@ -74,10 +75,23 @@ export class ClassesPageComponent implements OnInit {
     return classes[classes.length - 1] === currentClass;
   }
 
-  public showClassesHandler(classs: Class) {
+  public addStudentsHandler(classs: Class) {
+    const dialogRef = this.dialog.open(AddStudentsListingDialogComponent, {
+      width: '60rem',
+      data: {
+        students: this.students,
+        classs: classs,
+      },
+    });
+  }
+
+  public showStudentsHandler(classs: Class) {
     const dialogRef = this.dialog.open(StudentListingDialogComponent, {
       width: '60rem',
-      data: classs,
+      data: {
+        students: this.students,
+        classs: classs,
+      },
     });
   }
 

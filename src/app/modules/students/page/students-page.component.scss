@@ -99,14 +99,22 @@ mat-list-item {
   }
 }
 
+.show-icon {
+  color: $primary-color;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
 .edit-icon {
   color: $primary-color;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
 .delete-icon {
   color: $error;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
 .search-icon {

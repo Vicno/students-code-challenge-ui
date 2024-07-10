@@ -9,6 +9,7 @@ import { AddClassDialogComponent } from './components/add-class-dialog/add-class
 import { UpdateClassDialogComponent } from './components/update-class-dialog/update-class-dialog.component';
 import { DeleteClassDialogComponent } from './components/delete-class-dialog/delete-class-dialog.component';
 import { StudentListingDialogComponent } from './components/student-listing-dialog/student-listing-dialog.component';
+import { AddStudentsListingDialogComponent } from './components/add-students-listing-dialog/add-students-listing-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StudentListingDialogComponent } from './components/student-listing-dial
     UpdateClassDialogComponent,
     DeleteClassDialogComponent,
     StudentListingDialogComponent,
+    AddStudentsListingDialogComponent,
   ],
   imports: [CommonModule, FormsModule, MatListModule, MatIconModule],
 })

@@ -41,9 +41,16 @@
               <mat-icon
                 class="edit-icon"
                 aria-hidden="false"
+                aria-label="students student"
+                fontIcon="group_add"
+                (click)="addStudentsHandler(class)"
+              ></mat-icon>
+              <mat-icon
+                class="students-icon"
+                aria-hidden="false"
                 aria-label="edit student"
-                fontIcon="visibility"
-                (click)="showClassesHandler(class)"
+                fontIcon="group"
+                (click)="showStudentsHandler(class)"
               ></mat-icon>
               <mat-icon
                 class="edit-icon"

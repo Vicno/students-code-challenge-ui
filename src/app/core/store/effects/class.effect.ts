@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
+import { mergeMap, of } from 'rxjs';
 import { map, exhaustMap, catchError, switchMap, tap } from 'rxjs';
 import { ClassService } from '../../services/class.service';
 import { Store } from '@ngrx/store';
@@ -111,7 +111,7 @@ export class ClassEffects {
   addStudentToClass$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addStudentToClass),
-      exhaustMap((action) =>
+      mergeMap((action) =>
         this.classService
           .addStudentToClass(action.class.classCode, action.student.id)
           .pipe(

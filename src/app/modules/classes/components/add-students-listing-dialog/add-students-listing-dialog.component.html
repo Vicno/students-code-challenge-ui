@@ -1,14 +1,20 @@
-<h1>Enrolled students of {{ classs.title }}</h1>
+<h1>Enroll students to {{ classs.title }}</h1>
 <section class="listing">
   <mat-list role="list">
     <div class="table-header">
       <p class="name">Name</p>
       <p class="lastName">Last Name</p>
+      <div class="button"></div>
     </div>
     <mat-list-item *ngFor="let student of students">
       <div class="list-item">
         <p class="name">{{ student.name }}</p>
         <p class="lastName">{{ student.lastName }}</p>
+        <div class="button">
+          <button class="addStudent" (click)="toggleStudentSelection(student)">
+            {{ isStudentSelected(student) ? "Remove" : "Add" }}
+          </button>
+        </div>
       </div>
     </mat-list-item>
   </mat-list>
@@ -16,4 +22,5 @@
 
 <section class="buttons">
   <button class="cancel" (click)="onClose()">Close</button>
+  <button class="save" (click)="onAddStudents()">Add Students</button>
 </section>

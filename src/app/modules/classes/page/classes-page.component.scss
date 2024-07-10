@@ -108,11 +108,19 @@ mat-list-item {
 .edit-icon {
   color: $primary-color;
   cursor: pointer;
+  margin-left: 1rem;
+}
+
+.students-icon {
+  color: $primary-color;
+  cursor: pointer;
+  margin-left: 1rem;
 }
 
 .delete-icon {
   color: $error;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
 .search-icon {
