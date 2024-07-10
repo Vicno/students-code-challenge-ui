@@ -8,6 +8,7 @@ import {
   getStudents,
   updateStudent,
 } from '../../../../core/store/actions/student.action';
+import { DialogStudentsModal } from '../../../../shared/models/dialogStudents.modal';
 
 @Component({
   selector: 'app-update-student-dialog',
@@ -19,15 +20,13 @@ export class UpdateStudentDialogComponent implements OnInit {
   lastName: string = '';
   id: string = '';
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: DialogStudentsModal,
     public dialogRef: MatDialogRef<AddStudentDialogComponent>,
     private studentStore: Store<State<StudentState>>
   ) {}
 
   ngOnInit(): void {
-    console.log(`data: ${this.data}`);
     this.id = this.data.id;
-    console.log(`User ID: ${this.id}`);
   }
 
   onClose(): void {
@@ -37,7 +36,7 @@ export class UpdateStudentDialogComponent implements OnInit {
   onCreate(): void {
     if (this.validateFields()) {
       var newStudent: Student = {
-        id: '',
+        id: this.id,
         name: this.name,
         lastName: this.lastName,
       };

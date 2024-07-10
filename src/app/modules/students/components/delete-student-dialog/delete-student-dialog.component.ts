@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
 import { State, Store } from '@ngrx/store';
 import { StudentState } from '../../../../core/store/reducers/student.reducer';
 import { Student } from '../../../../shared/models/student.model';
 import {
-  addStudent,
+  deleteStudent,
   getStudents,
 } from '../../../../core/store/actions/student.action';
+import { DialogStudentsModal } from '../../../../shared/models/dialogStudents.modal';
 
 @Component({
   selector: 'app-delete-student-dialog',
@@ -17,36 +18,32 @@ import {
 export class DeleteStudentDialogComponent {
   name: string = '';
   lastName: string = '';
+  id: string = '';
+  student: Student = {
+    id: '',
+    name: '',
+    lastName: '',
+  };
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: DialogStudentsModal,
     public dialogRef: MatDialogRef<AddStudentDialogComponent>,
     private studentStore: Store<State<StudentState>>
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.id = this.data.id;
+    this.name = this.data.student.name;
+    this.lastName = this.data.student.lastName;
+    this.student = this.data.student;
+  }
 
   onClose(): void {
     this.dialogRef.close();
   }
 
-  onCreate(): void {
-    if (this.validateFields()) {
-      var newStudent: Student = {
-        id: '',
-        name: this.name,
-        lastName: this.lastName,
-      };
-      this.studentStore.dispatch(addStudent({ student: newStudent }));
-      this.studentStore.dispatch(getStudents());
-      this.dialogRef.close();
-    }
-  }
-
-  validateFields(): boolean {
-    return (
-      this.name !== null &&
-      this.name !== '' &&
-      this.lastName !== null &&
-      this.lastName !== ''
-    );
+  onDelete(): void {
+    this.studentStore.dispatch(deleteStudent({ student: this.student }));
+    this.studentStore.dispatch(getStudents());
+    this.dialogRef.close();
   }
 }

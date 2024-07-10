@@ -81,13 +81,20 @@ export class StudentsPageComponent {
   public updateHandler(student: Student) {
     const dialogRef = this.dialog.open(UpdateStudentDialogComponent, {
       width: '60rem',
-      id: student.id,
+      data: {
+        id: student.id,
+        student: student,
+      },
     });
   }
 
   public deleteHandler(student: Student) {
     const dialogRef = this.dialog.open(DeleteStudentDialogComponent, {
       width: '60rem',
+      data: {
+        id: student.id,
+        student: student,
+      },
     });
   }
 }

@@ -11,26 +11,23 @@ export class StudentService {
     return this.http.get<Student[]>(`https://localhost:7175/api/Student`);
   }
 
-  createStudent(student: Student): Observable<StudentResponse> {
-    return this.http.post<StudentResponse>(
+  createStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>(
       `https://localhost:7175/api/Student`,
       student
     );
   }
 
-  updateStudent(
-    studentId: string,
-    student: Student
-  ): Observable<StudentResponse> {
-    return this.http.put<StudentResponse>(
+  updateStudent(studentId: string, student: Student): Observable<Student> {
+    return this.http.put<Student>(
       `https://localhost:7175/api/Student/${studentId}`,
       student
     );
   }
 
-  deleteStudent(studentId: string): Observable<StudentResponse> {
-    return this.http.delete<StudentResponse>(
-      `https://localhost:7175/api/Students/${studentId}`,
+  deleteStudent(studentId: string): Observable<Student> {
+    return this.http.delete<Student>(
+      `https://localhost:7175/api/Student/${studentId}`,
       {}
     );
   }
