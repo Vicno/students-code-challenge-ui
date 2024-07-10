@@ -33,5 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
+  exports: [HeaderComponent, FooterComponent],
 })
 export class AppModule {}
