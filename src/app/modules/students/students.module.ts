@@ -8,6 +8,7 @@ import { UpdateStudentDialogComponent } from './components/update-student-dialog
 import { DeleteStudentDialogComponent } from './components/delete-student-dialog/delete-student-dialog.component';
 import { MatDialogActions, MatDialogContent } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { ClassListingComponent } from './components/class-listing/class-listing.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     AddStudentDialogComponent,
     UpdateStudentDialogComponent,
     DeleteStudentDialogComponent,
+    ClassListingComponent,
   ],
   imports: [
     CommonModule,

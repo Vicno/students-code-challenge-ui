@@ -19,6 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../components/add-student-dialog/add-student-dialog.component';
 import { UpdateStudentDialogComponent } from '../components/update-student-dialog/update-student-dialog.component';
 import { DeleteStudentDialogComponent } from '../components/delete-student-dialog/delete-student-dialog.component';
+import { ClassListingComponent } from '../components/class-listing/class-listing.component';
 
 @Component({
   selector: 'app-students-page',
@@ -54,6 +55,10 @@ export class StudentsPageComponent {
       }
     });
   }
+  getNumberOfClasses(student: Student): Number {
+    var classes = this.returnClassesPerStudent(student);
+    return classes.length;
+  }
 
   returnClassesPerStudent(student: Student): Class[] {
     let response: Class[] = [];
@@ -70,6 +75,16 @@ export class StudentsPageComponent {
   isLastClass(currentClass: Class): boolean {
     const classes = this.classes;
     return classes[classes.length - 1] === currentClass;
+  }
+
+  public showClassesHandler(student: Student) {
+    const dialogRef = this.dialog.open(ClassListingComponent, {
+      width: '60rem',
+      data: {
+        studentId: student.id,
+        classes: this.returnClassesPerStudent(student),
+      },
+    });
   }
 
   public addHandler() {

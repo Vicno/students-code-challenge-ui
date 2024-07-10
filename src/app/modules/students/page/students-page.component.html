@@ -15,11 +15,16 @@
           ><div class="list-item">
             <p class="name">{{ student.name }} {{ student.lastName }}</p>
             <p class="classes">
-              <span *ngFor="let class of returnClassesPerStudent(student)">
-                {{ class.title }}<span *ngIf="!isLastClass(class)">, </span>
-              </span>
+              {{ getNumberOfClasses(student) }}
             </p>
             <div class="actions">
+              <mat-icon
+                class="edit-icon"
+                aria-hidden="false"
+                aria-label="edit student"
+                fontIcon="visibility"
+                (click)="showClassesHandler(student)"
+              ></mat-icon>
               <mat-icon
                 class="edit-icon"
                 aria-hidden="false"
