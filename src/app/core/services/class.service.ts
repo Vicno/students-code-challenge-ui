@@ -11,32 +11,26 @@ export class ClassService {
     return this.http.get<Class[]>(`https://localhost:7175/api/Class`);
   }
 
-  createClass(classs: Class): Observable<ClassResponse> {
-    return this.http.post<ClassResponse>(
-      `https://localhost:7175/api/Class`,
-      classs
-    );
+  createClass(classs: Class): Observable<Class> {
+    return this.http.post<Class>(`https://localhost:7175/api/Class`, classs);
   }
 
-  updateClass(classCode: string, classs: Class): Observable<ClassResponse> {
-    return this.http.put<ClassResponse>(
+  updateClass(classCode: string, classs: Class): Observable<Class> {
+    return this.http.put<Class>(
       `https://localhost:7175/api/Class/${classCode}`,
       classs
     );
   }
 
-  deleteClass(classCode: string): Observable<ClassResponse> {
-    return this.http.delete<ClassResponse>(
+  deleteClass(classCode: string): Observable<Class> {
+    return this.http.delete<Class>(
       `https://localhost:7175/api/Class/${classCode}`,
       {}
     );
   }
 
-  addStudentToClass(
-    classCode: string,
-    studentId: string
-  ): Observable<ClassResponse> {
-    return this.http.post<ClassResponse>(
+  addStudentToClass(classCode: string, studentId: string): Observable<Class> {
+    return this.http.post<Class>(
       `https://localhost:7175/api/Class/${classCode}/AddStudent/${studentId}`,
       {}
     );
@@ -45,8 +39,8 @@ export class ClassService {
   removeStudentFromClass(
     classCode: string,
     studentId: string
-  ): Observable<ClassResponse> {
-    return this.http.post<ClassResponse>(
+  ): Observable<Class> {
+    return this.http.post<Class>(
       `https://localhost:7175/api/Class/${classCode}/RemoveStudent/${studentId}`,
       {}
     );
