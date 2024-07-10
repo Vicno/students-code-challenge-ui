@@ -1,0 +1,11 @@
+<h1>Delete Student</h1>
+<section class="inputs">
+  <label>You are deleting the student</label>
+  <P>{{ name }} {{ lastName }}</P>
+  <label>Do you want to proceed?</label>
+</section>
+
+<section class="buttons">
+  <button class="cancel" (click)="onClose()">Cancel</button>
+  <button class="save" (click)="onDelete()">Delete</button>
+</section>

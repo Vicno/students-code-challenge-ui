@@ -1,0 +1,44 @@
+@import "../../../../assets/scss/main.scss";
+@import "../../../../styles.scss";
+
+img {
+  max-height: 10rem;
+  max-width: 10rem;
+  flex: 1;
+}
+
+h2 {
+  color: $white;
+  flex: 3;
+  text-align: center;
+}
+
+section {
+  font-size: 16px;
+  display: flex;
+  padding-left: 3rem;
+  padding-right: 6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: $primary-color;
+  align-items: center;
+}
+
+.mat-button-toggle {
+  background-color: $white;
+}
+
+.mat-button-toggle-checked {
+  background-color: $secondary-color !important;
+}
+
+.mat-button-toggle-group {
+  border: 1px $black solid;
+  border-radius: 0.5rem;
+  flex: 2;
+}
+
+.button-section {
+  display: flex;
+  align-items: center;
+}

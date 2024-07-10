@@ -1,0 +1,66 @@
+<body>
+  <section class="input-section">
+    <h2>Students Page</h2>
+    <div class="input-space">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        class="input-area"
+        placeholder="Search by name and last name"
+      />
+      <mat-icon
+        class="search-icon"
+        aria-hidden="false"
+        aria-label="edit student"
+        fontIcon="search"
+      ></mat-icon>
+    </div>
+  </section>
+  <section>
+    <div class="table-card-students">
+      <div class="table-header">
+        <p class="name">Name</p>
+        <p class="classes">Enrolled classes</p>
+        <p class="actions">Action</p>
+      </div>
+      <mat-list role="list">
+        <mat-list-item>
+          <div class="add-button" (click)="addHandler()">+</div>
+        </mat-list-item>
+        <mat-list-item
+          role="listitem"
+          *ngFor="let student of students | studentFilter : searchTerm"
+          ><div class="list-item">
+            <p class="name">{{ student.name }} {{ student.lastName }}</p>
+            <p class="classes">
+              {{ getNumberOfClasses(student) }}
+            </p>
+            <div class="actions">
+              <mat-icon
+                class="show-icon"
+                aria-hidden="false"
+                aria-label="edit student"
+                fontIcon="visibility"
+                (click)="showClassesHandler(student)"
+              ></mat-icon>
+              <mat-icon
+                class="edit-icon"
+                aria-hidden="false"
+                aria-label="edit student"
+                fontIcon="edit"
+                (click)="updateHandler(student)"
+              ></mat-icon>
+              <mat-icon
+                class="delete-icon"
+                aria-hidden="false"
+                aria-label="delete student"
+                fontIcon="delete"
+                (click)="deleteHandler(student)"
+              ></mat-icon>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </section>
+</body>

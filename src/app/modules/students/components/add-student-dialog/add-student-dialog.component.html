@@ -1,0 +1,12 @@
+<h1>Add Student</h1>
+<section class="inputs">
+  <label>First Name</label>
+  <input type="text" [(ngModel)]="name" />
+  <label>Last Name</label>
+  <input type="text" [(ngModel)]="lastName" />
+</section>
+
+<section class="buttons">
+  <button class="cancel" (click)="onClose()">Cancel</button>
+  <button class="save" (click)="onCreate()">Save</button>
+</section>
