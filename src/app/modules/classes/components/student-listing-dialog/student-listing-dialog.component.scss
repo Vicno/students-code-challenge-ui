@@ -55,4 +55,15 @@ section {
   .lastName {
     flex: 2;
   }
+  .button {
+    flex: 0.5;
+  }
+}
+
+.removeStudent {
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 10rem;
 }

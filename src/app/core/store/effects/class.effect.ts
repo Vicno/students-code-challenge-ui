@@ -131,7 +131,7 @@ export class ClassEffects {
   removeStudentFromClass$ = createEffect(() =>
     this.actions$.pipe(
       ofType(removeStudentFromClass),
-      exhaustMap((action) =>
+      mergeMap((action) =>
         this.classService
           .removeStudentFromClass(action.class.classCode, action.student.id)
           .pipe(

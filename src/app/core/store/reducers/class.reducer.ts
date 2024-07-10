@@ -88,6 +88,9 @@ export const classReducer = createReducer(
   })),
   on(ClassActions.removeStudentFromClassSuccess, (state, action) => ({
     ...state,
+    classes: state.classes.map((classItem) =>
+      classItem.classCode === action.class.classCode ? action.class : classItem
+    ),
     isLoading: false,
   })),
   on(ClassActions.removeStudentFromClassError, (state, { error }) => ({
